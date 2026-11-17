@@ -1,0 +1,126 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2026-11-17T22:20:34.962090",
+  "diabetes_model": {
+    "features": [
+      "fasting_glucose",
+      "hba1c",
+      "bmi",
+      "age",
+      "symptom_thirst_urination",
+      "symptom_unexplained_weight_loss",
+      "symptom_blurred_vision"
+    ],
+    "accuracy": 0.998,
+    "f1_score": 0.9980188435057202,
+    "roc_auc": 0.9999889923606983,
+    "cv_accuracy_mean": 0.994,
+    "cv_accuracy_std": 0.006244997998398393,
+    "feature_importances": {
+      "fasting_glucose": 0.630809070251482,
+      "hba1c": 0.28436632723521027,
+      "age": 0.03788735037011852,
+      "bmi": 0.026451711310280325,
+      "symptom_thirst_urination": 0.017803362246672,
+      "symptom_blurred_vision": 0.0015729807512986805,
+      "symptom_unexplained_weight_loss": 0.0011091978349382064
+    }
+  },
+  "cvd_model": {
+    "features": [
+      "age",
+      "gender_male",
+      "systolic_bp",
+      "diastolic_bp",
+      "total_cholesterol",
+      "ldl",
+      "hdl",
+      "triglycerides",
+      "smoking",
+      "family_history_cvd",
+      "symptom_chest_pain_exertion",
+      "symptom_sob_stairs"
+    ],
+    "accuracy": 0.892,
+    "f1_score": 0.8918310498383457,
+    "roc_auc": 0.9769164811429155,
+    "cv_accuracy_mean": 0.9049999999999999,
+    "cv_accuracy_std": 0.012449899597988753,
+    "feature_importances": {
+      "age": 0.5062667865402661,
+      "ldl": 0.1509606988155733,
+      "systolic_bp": 0.08639954595770695,
+      "smoking": 0.07268696639486721,
+      "family_history_cvd": 0.06323373734322979,
+      "hdl": 0.048011192357511376,
+      "diastolic_bp": 0.0314353951137596,
+      "triglycerides": 0.018435556347746906,
+      "symptom_chest_pain_exertion": 0.011438827581133482,
+      "total_cholesterol": 0.010503156042706525,
+      "symptom_sob_stairs": 0.0004890932752104602,
+      "gender_male": 0.00013904423028830002
+    }
+  },
+  "normal_ranges": {
+    "fasting_glucose": {
+      "min": 70,
+      "max": 99,
+      "unit": "mg/dL",
+      "label": "Fasting Blood Glucose"
+    },
+    "hba1c": {
+      "min": 4.0,
+      "max": 5.6,
+      "unit": "%",
+      "label": "HbA1c (Glycated Hemoglobin)"
+    },
+    "total_cholesterol": {
+      "min": 120,
+      "max": 200,
+      "unit": "mg/dL",
+      "label": "Total Cholesterol"
+    },
+    "ldl": {
+      "min": 50,
+      "max": 99,
+      "unit": "mg/dL",
+      "label": "LDL (Bad) Cholesterol"
+    },
+    "hdl": {
+      "min": 40,
+      "max": 60,
+      "unit": "mg/dL",
+      "label": "HDL (Good) Cholesterol"
+    },
+    "triglycerides": {
+      "min": 50,
+      "max": 149,
+      "unit": "mg/dL",
+      "label": "Triglycerides"
+    },
+    "systolic_bp": {
+      "min": 90,
+      "max": 120,
+      "unit": "mmHg",
+      "label": "Systolic Blood Pressure"
+    },
+    "diastolic_bp": {
+      "min": 60,
+      "max": 80,
+      "unit": "mmHg",
+      "label": "Diastolic Blood Pressure"
+    },
+    "creatinine": {
+      "min": 0.6,
+      "max": 1.2,
+      "unit": "mg/dL",
+      "label": "Serum Creatinine"
+    },
+    "bmi": {
+      "min": 18.5,
+      "max": 24.9,
+      "unit": "kg/m\u00b2",
+      "label": "Body Mass Index"
+    }
+  }
+}
