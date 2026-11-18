@@ -10,7 +10,9 @@ import { PRESET_SAMPLE_REPORTS } from './data/sampleReports';
 import { parseReportLocally, analyzeRiskLocally } from './data/fallbackEngine';
 
 const PROXY_BASE = '/api';
-const DIRECT_BASE = 'http://127.0.0.1:8000/api';
+const DIRECT_BASE = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL.replace(/\/$/, '')}/api`
+  : 'http://127.0.0.1:8000/api';
 
 async function fetchWithFallback(endpoint, options = {}) {
   // 1. Try relative proxy first

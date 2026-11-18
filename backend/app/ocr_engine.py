@@ -90,7 +90,17 @@ def extract_text_from_pdf(file_path: str) -> str:
     except Exception as e:
         print(f"[!] WinRT PDF OCR fallback: {e}")
 
-    # 2. Fallback: Native zlib decompression and PDF operator parsing
+    # 2. Universal PDF Parser for Cloud/Linux environments (pypdf)
+    try:
+        from pypdf import PdfReader
+        reader = PdfReader(file_path)
+        pypdf_text = "\n".join([page.extract_text() or "" for page in reader.pages]).strip()
+        if len(pypdf_text) > 40:
+            return pypdf_text
+    except Exception as e:
+        pass
+
+    # 3. Fallback: Native zlib decompression and PDF operator parsing
     text_pieces = []
     try:
         with open(file_path, "rb") as f:
