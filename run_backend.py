@@ -1,10 +1,10 @@
 """
-CardioDiab Backend Runner
-Runs FastAPI backend on port 8000 from root directory with proper Python path.
+CardioDiab Production & Local Backend Runner
+Runs FastAPI backend with proper Python paths, binding dynamically to $PORT on Render/Cloud or 8000 locally.
 """
 
-import sys
 import os
+import sys
 
 root_dir = os.path.dirname(os.path.abspath(__file__))
 backend_dir = os.path.join(root_dir, "backend")
@@ -17,5 +17,15 @@ if root_dir not in sys.path:
 import uvicorn
 
 if __name__ == "__main__":
-    print("[*] Starting CardioDiab FastAPI server on http://127.0.0.1:8000 ...")
-    uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=True, app_dir=backend_dir)
+    port = int(os.environ.get("PORT", 8000))
+    host = os.environ.get("HOST", "0.0.0.0")
+    is_dev = os.environ.get("ENVIRONMENT", "development") == "development"
+    
+    print(f"[*] Starting CardioDiab FastAPI server on {host}:{port} (env: {os.environ.get('ENVIRONMENT', 'development')}) ...")
+    uvicorn.run(
+        "app.main:app",
+        host=host,
+        port=port,
+        reload=is_dev,
+        app_dir=backend_dir
+    )
