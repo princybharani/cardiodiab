@@ -13,12 +13,10 @@ services:
       - key: PYTHON_VERSION
         value: 3.11.8
 
-  # 2. React Vite Frontend Static Site
+  # 2. React Vite Frontend Static Site (Served globally via Render CDN, no region required)
   - type: web
     name: cardiodiab-frontend
     env: static
-    region: oregon
-    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
     routes:
